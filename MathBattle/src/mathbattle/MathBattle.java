@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package MathBattle.src.mathbattle;
+package mathbattle;
 
 import java.util.Scanner;
 
@@ -27,9 +27,9 @@ public class MathBattle
 	if(playerNumber ==1)
 		{
 			System.out.println("Please enter your name: ");
-			System.out.println("Please enter the Number you would like to study: ");
-			MathController MC = new MathController(in.nextInt());
 			String playerName = in.next();
+			System.out.println("Please enter the number you would like to study: ");
+			int studyNumber = in.nextInt();
 		Interface FirstInterface = new Interface(playerNumber,playerName);
 		FirstInterface.FirstScreen();
 

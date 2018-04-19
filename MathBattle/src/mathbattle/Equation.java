@@ -1,4 +1,4 @@
-package MathBattle.src.mathbattle;
+package mathbattle;
 import java.util.Random;
 import java.util.Scanner;
 
