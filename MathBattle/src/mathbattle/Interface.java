@@ -31,11 +31,12 @@ public class Interface implements ActionListener
 
 	public void FirstScreen()
 	{
-
+        JButton CheckButton = new JButton("Check");
+        CheckButton.addActionListener(this);
 		JFrame FirstFrame = new JFrame();
 		JPanel panel2 = new JPanel();
 		panel2.setLayout(new FlowLayout());
-		panel2.add(new JLabel("placeholder text"));
+		panel2.add(CheckButton);
 		panel2.add(new JTextField(10));
 		panel2.add(new JButton("hello"));
 		FirstFrame.setVisible(true);

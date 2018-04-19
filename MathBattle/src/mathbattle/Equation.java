@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 public class Equation
 {
-   
+
    private int userFactor; 
 
    int[] product = new int[13]; 
@@ -12,8 +12,13 @@ public class Equation
    Scanner input = new Scanner(System.in);
    Random rand = new Random();
 
+    public Equation(int product)
+    {
+        userFactor = product;
 
-	public int table(int userFactor)
+    }
+
+    public int table(int userFactor)
 	{
 	   System.out.print("Enter in a number: ");
            userFactor = input.nextInt();
