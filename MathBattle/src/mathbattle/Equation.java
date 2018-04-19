@@ -20,9 +20,6 @@ public class Equation
 
     public int table(int userFactor)
 	{
-	   System.out.print("Enter in a number: ");
-           userFactor = input.nextInt();
-           input.nextLine();
 
 	   for (int i = 0; i < product.length; i++)
 	   {
