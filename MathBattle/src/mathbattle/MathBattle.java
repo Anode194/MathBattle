@@ -27,6 +27,8 @@ public class MathBattle
 	if(playerNumber ==1)
 		{
 			System.out.println("Please enter your name: ");
+			System.out.println("Please enter the Number you would like to study: ");
+			MathController MC = new MathController(in.nextInt());
 			String playerName = in.next();
 		Interface FirstInterface = new Interface(playerNumber,playerName);
 		FirstInterface.FirstScreen();

@@ -31,14 +31,16 @@ public class Interface implements ActionListener
 
 	public void FirstScreen()
 	{
+
+	    JLabel EquationLabel = new JLabel();
+	    EquationLabel.setText("equation placeholder");
         JButton CheckButton = new JButton("Check");
         CheckButton.addActionListener(this);
 		JFrame FirstFrame = new JFrame();
 		JPanel panel2 = new JPanel();
 		panel2.setLayout(new FlowLayout());
-		panel2.add(CheckButton);
 		panel2.add(new JTextField(10));
-		panel2.add(new JButton("hello"));
+		panel2.add(CheckButton);
 		FirstFrame.setVisible(true);
 		FirstFrame.setContentPane(panel2);
 		FirstFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
