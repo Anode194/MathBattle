@@ -48,5 +48,6 @@ public class Player
 	{
 	   playerDefeated = true;
 	}
-   } 
+    return 0;               //this will need to be changed its only in here for testing.
+   }
 }

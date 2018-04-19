@@ -7,20 +7,20 @@ package MathBattle.src.mathbattle;
 
 import java.awt.FlowLayout;
 import java.awt.GridLayout;
-import javax.swing.JFrame;
-import javax.swing.JLabel;
-import javax.swing.JPanel;
-import javax.swing.JTextField;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import javax.swing.*;
 
 /**
  *
  * @author JO Phillips
  */
-public class Interface
+public class Interface implements ActionListener
 {
 
 	private String name;
 	private int state;
+
 
 	Interface(int playerNumber, String playerName)
 	{
@@ -37,6 +37,7 @@ public class Interface
 		panel2.setLayout(new FlowLayout());
 		panel2.add(new JLabel("placeholder text"));
 		panel2.add(new JTextField(10));
+		panel2.add(new JButton("hello"));
 		FirstFrame.setVisible(true);
 		FirstFrame.setContentPane(panel2);
 		FirstFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -55,5 +56,10 @@ public class Interface
 		panel3.add(new JLabel("Type the answer before timer runs out!"));
 		panel3.add(new JTextField(10));
 		
+	}
+
+	@Override
+	public void actionPerformed(ActionEvent e) {
+
 	}
 }

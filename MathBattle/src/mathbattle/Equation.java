@@ -30,6 +30,8 @@ public class Equation
 		    userFactor, '\u00D7', i, '\u003D', product[i]);
 		
 	   } 
+
+		return 0; // this isn't correct and will need to be changed.
 	}
 }
 
