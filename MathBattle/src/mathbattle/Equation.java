@@ -38,5 +38,14 @@ public class Equation
 
 		return 0; // this isn't correct and will need to be changed.
 	}
+
+    public int[] getEquations()
+    {
+        int eqArray[] = new int[3];
+         eqArray[0] = userFactor;
+        eqArray[1] = rand.nextInt(11+1);
+        eqArray[2] = eqArray[0] * eqArray[1];
+        return eqArray;
+    }
 }
 
