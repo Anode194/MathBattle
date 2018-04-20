@@ -75,16 +75,15 @@ public class Interface extends JFrame implements ActionListener
 	@Override
 	public void actionPerformed(ActionEvent e)
 	{
-        System.out.println(" " + mainMath.getCurrentEquation());
         userValue = answerTextField.getText();
        int userValue1 = parseInt(userValue);
 
         if(mainMath.compareEquation(userValue1))
         {
-            System.out.println("correct!");
+            answerTextField.setText("CORRECT!");
 
+        }else {
+            answerTextField.setText("that wasn't correct");
         }
-        answerTextField.setText("that wasn't correct");
-
        }
 }
