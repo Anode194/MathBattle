@@ -35,7 +35,7 @@ public class Equation
     {
         int eqArray[] = new int[3];
          eqArray[0] = userFactor;
-        eqArray[1] = rand.nextInt(11+1);
+        eqArray[1] = rand.nextInt(12);
         eqArray[2] = eqArray[0] * eqArray[1];
         return eqArray;
     }

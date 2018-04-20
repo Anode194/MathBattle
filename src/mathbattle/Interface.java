@@ -11,11 +11,14 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.*;
 
+import static java.lang.Integer.parseInt;
+
+
 /**
  *
  * @author JO Phillips
  */
-public class Interface implements ActionListener
+public class Interface extends JFrame implements ActionListener
 {
 
 	private String name;
@@ -23,6 +26,9 @@ public class Interface implements ActionListener
 	private MathController mainMath;
 	private String userValue;
 
+    JTextField answerTextField = new JTextField(10);  // instantiating elements
+    JLabel EquationLabel = new JLabel();
+    JButton CheckButton = new JButton("check");
 	Interface(int playerNumber, String playerName, MathController mathController)
 	{
 		state = playerNumber;
@@ -33,22 +39,20 @@ public class Interface implements ActionListener
 
 	public void FirstScreen()
 	{
-		JTextField answerTextField = new JTextField();
-		answerTextField.setSize(12,40);
-        String userValue = answerTextField.getText();
-		answerTextField.addActionListener(this);
-        JLabel EquationLabel = new JLabel();
-	    EquationLabel.setText("hello");
+        JFrame FirstFrame = new JFrame();
+        JPanel panel2 = new JPanel();
 
-        JButton CheckButton = new JButton("check");
+		answerTextField.setSize(12,40); //settings
         CheckButton.addActionListener(this);
-		JFrame FirstFrame = new JFrame();
-		JPanel panel2 = new JPanel();
-		panel2.setLayout(new FlowLayout());
+        answerTextField.addActionListener(this);
+        EquationLabel.setText(mainMath.getfullEq());
+
+        panel2.setLayout(new FlowLayout()); // adding elements to panel
+		panel2.add(EquationLabel);
 		panel2.add(answerTextField);
-		panel2.add(new JTextField(10));
 		panel2.add(CheckButton);
-		FirstFrame.setVisible(true);
+
+		FirstFrame.setVisible(true);   //frame settings and actions;
 		FirstFrame.setContentPane(panel2);
 		FirstFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		FirstFrame.setTitle("MathBattle!");
@@ -71,9 +75,16 @@ public class Interface implements ActionListener
 	@Override
 	public void actionPerformed(ActionEvent e)
 	{
-	   if(mainMath.compareEquation(Integer.parseInt(userValue))) {
-           System.out.println("correct!");
+        System.out.println(" " + mainMath.getCurrentEquation());
+        userValue = answerTextField.getText();
+       int userValue1 = parseInt(userValue);
 
-       }
+        if(mainMath.compareEquation(userValue1))
+        {
+            System.out.println("correct!");
+
+        }
+        answerTextField.setText("that wasn't correct");
+
        }
 }

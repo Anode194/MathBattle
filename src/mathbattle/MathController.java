@@ -3,7 +3,7 @@ package mathbattle;
 public class MathController
 {
 private int studyNumber;
-private int[] currentEquation;
+private int currentEquation[];
 Equation Equation = new Equation(studyNumber);
 
     public MathController(int number)
@@ -11,7 +11,7 @@ Equation Equation = new Equation(studyNumber);
         studyNumber = number;
 
     }
-    public void setcurrentEquation()
+    public void setCurrentEquation()
     {
         currentEquation =  Equation.getEquations();
     }
@@ -26,17 +26,22 @@ Equation Equation = new Equation(studyNumber);
 
     public String getMissingFaEq()
     {
-        String missingFactorEquation = "test";/*String.format("%d %c   %c %d%n",
+        String missingFactorEquation = String.format("%d %c   %c %d%n",
                 studyNumber,'\u00D7','\u003D', currentEquation[2]);
-*/
+
         return missingFactorEquation;
     }
 
     public String getfullEq()
     {
         String fullEquation = String.format("%d %c %d %c %d",
-                studyNumber,'\u00D7', '\u003D', currentEquation[2]);
+                studyNumber,'\u00D7', currentEquation[1], '\u003D', currentEquation[2]);
         return fullEquation;
+    }
+    public int getCurrentEquation()
+    {
+
+        return currentEquation[1];
     }
 
 
