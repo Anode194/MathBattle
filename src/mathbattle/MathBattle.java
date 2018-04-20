@@ -20,12 +20,7 @@ public class MathBattle
 	 */
 	public static void main(String[] args)
 	{
-		/*int userFactor = 4;
-		Random rand = new Random();
-	int eqArray[] = new int[3];
-         eqArray[0] = userFactor;
-        eqArray[1] = rand.nextInt(12);
-        eqArray[2] = eqArray[0] * eqArray[1];*/
+
 
 		//System.out.println(eqArray[2]);
 	int playerNumber =0;

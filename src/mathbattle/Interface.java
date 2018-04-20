@@ -5,6 +5,7 @@
  */
 package mathbattle;
 
+
 import java.awt.FlowLayout;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
@@ -76,7 +77,7 @@ public class Interface extends JFrame implements ActionListener
             labelArray[i].setBounds(20,40,20, 40 );
         }
 		SecondFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); // Settings and actions
-		panel3.setLayout(new GridLayout(10, 1, 6, 3));
+		panel3.setLayout(new BoxLayout(panel3, BoxLayout.Y_AXIS));
 		panel3.add(new JLabel("Type the answer before timer runs out!"));
 		panel3.add(new JTextField());
         SecondFrame.setContentPane(panel3);
