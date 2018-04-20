@@ -23,13 +23,14 @@ public class Interface extends JFrame implements ActionListener
 
 	private String name;
 	private int state;
-	private MathController mainMath;
+	private MathController mainMath; // fields
 	private String userValue;
 
     JTextField answerTextField = new JTextField(10);  // instantiating elements
     JLabel EquationLabel = new JLabel();
     JButton CheckButton = new JButton("check");
-	Interface(int playerNumber, String playerName, MathController mathController)
+
+    Interface(int playerNumber, String playerName, MathController mathController)
 	{
 		state = playerNumber;
 		name = playerName;
@@ -62,13 +63,27 @@ public class Interface extends JFrame implements ActionListener
 	public void SecondScreen()
 	{
 
-		JFrame SecondFrame = new JFrame();
+		JFrame SecondFrame = new JFrame();  // instantiating elements
 		JPanel panel3 = new JPanel();
 		SecondFrame.setTitle("MathBattle!");
-		SecondFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		panel3.setLayout(new GridLayout(6, 6, 6, 3));
+        JLabel[] labelArray = new  JLabel[10];
+
+
+        for(int i = 0; i<10;i++)
+        {
+            labelArray[i] = new JLabel("cool beans");
+            panel3.add(labelArray[i]);
+            labelArray[i].setBounds(20,40,20, 40 );
+        }
+		SecondFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); // Settings and actions
+		panel3.setLayout(new GridLayout(10, 1, 6, 3));
 		panel3.add(new JLabel("Type the answer before timer runs out!"));
-		panel3.add(new JTextField(10));
+		panel3.add(new JTextField());
+        SecondFrame.setContentPane(panel3);
+
+
+		SecondFrame.setVisible(true);
+		SecondFrame.pack();
 		
 	}
 

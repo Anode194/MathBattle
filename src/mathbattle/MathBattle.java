@@ -43,7 +43,8 @@ public class MathBattle
 			mc.setCurrentEquation();
 
 		Interface FirstInterface = new Interface(playerNumber,playerName,mc);
-		FirstInterface.FirstScreen();
+		FirstInterface.SecondScreen();
+		//FirstInterface.FirstScreen();
 
 		} /*else if (playerNumber ==2)
 		{

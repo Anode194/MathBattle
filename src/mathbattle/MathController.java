@@ -4,11 +4,12 @@ public class MathController
 {
 private int studyNumber;
 private int currentEquation[];
-Equation Equation = new Equation(studyNumber);
+Equation Equation;
 
-    public MathController(int number)
+    public MathController(int number, Equation Equation)
     {
         studyNumber = number;
+        this.Equation = Equation;
 
     }
     public void setCurrentEquation()
