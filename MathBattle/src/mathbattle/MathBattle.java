@@ -30,7 +30,9 @@ public class MathBattle
 			String playerName = in.next();
 			System.out.println("Please enter the number you would like to study: ");
 			int studyNumber = in.nextInt();
-		Interface FirstInterface = new Interface(playerNumber,playerName);
+			MathController mc = new MathController(studyNumber);
+			mc.setcurrentEquation();
+		Interface FirstInterface = new Interface(playerNumber,playerName,mc);
 		FirstInterface.FirstScreen();
 
 		} /*else if (playerNumber ==2)

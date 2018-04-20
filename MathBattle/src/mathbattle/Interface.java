@@ -20,20 +20,24 @@ public class Interface implements ActionListener
 
 	private String name;
 	private int state;
+	private MathController mainMath;
+	private String userValue;
 
-
-	Interface(int playerNumber, String playerName)
+	Interface(int playerNumber, String playerName, MathController mathController)
 	{
 		state = playerNumber;
 		name = playerName;
+		mainMath = mathController;
 
 	}
 
 	public void FirstScreen()
 	{
-
-	    JLabel EquationLabel = new JLabel();
-	    EquationLabel.setText("equation placeholder");
+		JTextField answerTextField = new JTextField();
+        String userValue = answerTextField.getText();
+		answerTextField.addActionListener(this);
+        JLabel EquationLabel = new JLabel();
+	    EquationLabel.setText("placeholder");
         JButton CheckButton = new JButton("Check");
         CheckButton.addActionListener(this);
 		JFrame FirstFrame = new JFrame();
@@ -62,7 +66,10 @@ public class Interface implements ActionListener
 	}
 
 	@Override
-	public void actionPerformed(ActionEvent e) {
-
-	}
+	public void actionPerformed(ActionEvent e)
+	{
+	   if(mainMath.compareEquation(Integer.parseInt(userValue))) {
+           System.out.println("correct!");
+       }
+       }
 }
