@@ -45,7 +45,7 @@ public class Interface extends JFrame implements ActionListener
 		answerTextField.setSize(12,40); //settings
         CheckButton.addActionListener(this);
         answerTextField.addActionListener(this);
-        EquationLabel.setText(mainMath.getfullEq());
+        EquationLabel.setText(mainMath.getMissingFaEq());
 
         panel2.setLayout(new FlowLayout()); // adding elements to panel
 		panel2.add(EquationLabel);
@@ -81,6 +81,8 @@ public class Interface extends JFrame implements ActionListener
         if(mainMath.compareEquation(userValue1))
         {
             answerTextField.setText("CORRECT!");
+            mainMath.setCurrentEquation();
+            EquationLabel.setText(mainMath.getMissingFaEq());
 
         }else {
             answerTextField.setText("that wasn't correct");
