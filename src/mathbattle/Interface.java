@@ -11,6 +11,11 @@ import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.*;
+import java.util.concurrent.Executors;
+import java.util.concurrent.ScheduledExecutorService;
+import java.util.concurrent.ScheduledFuture;
+import java.util.concurrent.TimeUnit;
+
 
 import static java.lang.Integer.parseInt;
 
@@ -23,22 +28,26 @@ public class Interface extends JFrame implements ActionListener
 {
 
 	private String name;
-	private int state;
 	private MathController mainMath; // fields
 	private String userValue;
+	private String feedBack = "correct or Not Correct?";
+	private long eqDelay;
+	private long timerTime;
+
 
     JTextField answerTextField1 = new JTextField(10);  // instantiating elements
     JTextField answerTextField2 = new JTextField(10);  // instantiating elements
     JLabel EquationLabel = new JLabel();
     JButton CheckButton = new JButton("check");
     JLabel[] labelArray = new  JLabel[10];
+    ScheduledExecutorService time;
 
-    Interface(int playerNumber, String playerName, MathController mathController)
+    Interface(int playerNumber, String playerName, MathController mathController, long eqDelay, long timerTime)
 	{
-		state = playerNumber;
 		name = playerName;
 		mainMath = mathController;
-
+        this.eqDelay = eqDelay;
+        this.timerTime = timerTime;
 	}
 
 	public void FirstScreen()
@@ -71,23 +80,27 @@ public class Interface extends JFrame implements ActionListener
 		SecondFrame.setTitle("MathBattle!");
 
 
-        for(int i = 0; i<10;i++)
+       /* for(int i = 0; i<10;i++)
         {
             labelArray[i] = new JLabel(mainMath.getfullEq());
             panel3.add(labelArray[i]);
             labelArray[i].setBounds(20,40,20, 40 );
-        }
+        }*/
+
+
+
 		SecondFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); // Settings and actions
 		panel3.setLayout(new BoxLayout(panel3, BoxLayout.Y_AXIS));
 		panel3.add(new JLabel("Type the answer before timer runs out!"));
 		answerTextField2.addActionListener(this);
 		panel3.add(answerTextField2);
         SecondFrame.setContentPane(panel3);
-
-
 		SecondFrame.setVisible(true);
 		SecondFrame.pack();
-		
+
+
+
+
 	}
 
 	@Override
@@ -118,6 +131,7 @@ public class Interface extends JFrame implements ActionListener
             if(mainMath.compareEquation1(userValue2))
             {
                 answerTextField2.setText("CORRECT");
+                answerTextField2.selectAll();
                 mainMath.setCurrentEquation();
                 for(int x =0; x<10; x++)
                 {
@@ -127,6 +141,7 @@ public class Interface extends JFrame implements ActionListener
             } else
             {
                 answerTextField2.setText("That wasn't Correct");
+                answerTextField2.selectAll();
             }
 
         }
