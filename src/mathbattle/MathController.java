@@ -25,6 +25,14 @@ Equation Equation;
         return false;
     }
 
+    public boolean compareEquation1(int x)
+    {
+        if(x == currentEquation[2])
+        {
+            return true;
+        }
+        return false;
+    }
     public String getMissingFaEq()
     {
         String missingFactorEquation = String.format("%d %c   %c %d%n",
@@ -35,8 +43,8 @@ Equation Equation;
 
     public String getfullEq()
     {
-        String fullEquation = String.format("%d %c %d %c %d",
-                studyNumber,'\u00D7', currentEquation[1], '\u003D', currentEquation[2]);
+        String fullEquation = String.format("%d %c %d %c ",
+                studyNumber,'\u00D7', currentEquation[1], '\u003D');
         return fullEquation;
     }
     public int getCurrentEquation()

@@ -27,9 +27,11 @@ public class Interface extends JFrame implements ActionListener
 	private MathController mainMath; // fields
 	private String userValue;
 
-    JTextField answerTextField = new JTextField(10);  // instantiating elements
+    JTextField answerTextField1 = new JTextField(10);  // instantiating elements
+    JTextField answerTextField2 = new JTextField(10);  // instantiating elements
     JLabel EquationLabel = new JLabel();
     JButton CheckButton = new JButton("check");
+    JLabel[] labelArray = new  JLabel[10];
 
     Interface(int playerNumber, String playerName, MathController mathController)
 	{
@@ -44,14 +46,14 @@ public class Interface extends JFrame implements ActionListener
         JFrame FirstFrame = new JFrame();
         JPanel panel2 = new JPanel();
 
-		answerTextField.setSize(12,40); //settings
+		answerTextField1.setSize(12,40); //settings
         CheckButton.addActionListener(this);
-        answerTextField.addActionListener(this);
+        answerTextField1.addActionListener(this);
         EquationLabel.setText(mainMath.getMissingFaEq());
 
         panel2.setLayout(new FlowLayout()); // adding elements to panel
 		panel2.add(EquationLabel);
-		panel2.add(answerTextField);
+		panel2.add(answerTextField1);
 		panel2.add(CheckButton);
 
 		FirstFrame.setVisible(true);   //frame settings and actions;
@@ -67,19 +69,19 @@ public class Interface extends JFrame implements ActionListener
 		JFrame SecondFrame = new JFrame();  // instantiating elements
 		JPanel panel3 = new JPanel();
 		SecondFrame.setTitle("MathBattle!");
-        JLabel[] labelArray = new  JLabel[10];
 
 
         for(int i = 0; i<10;i++)
         {
-            labelArray[i] = new JLabel("cool beans");
+            labelArray[i] = new JLabel(mainMath.getfullEq());
             panel3.add(labelArray[i]);
             labelArray[i].setBounds(20,40,20, 40 );
         }
 		SecondFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); // Settings and actions
 		panel3.setLayout(new BoxLayout(panel3, BoxLayout.Y_AXIS));
 		panel3.add(new JLabel("Type the answer before timer runs out!"));
-		panel3.add(new JTextField());
+		answerTextField2.addActionListener(this);
+		panel3.add(answerTextField2);
         SecondFrame.setContentPane(panel3);
 
 
@@ -91,17 +93,42 @@ public class Interface extends JFrame implements ActionListener
 	@Override
 	public void actionPerformed(ActionEvent e)
 	{
-        userValue = answerTextField.getText();
-       int userValue1 = parseInt(userValue);
-
-        if(mainMath.compareEquation(userValue1))
+	   if(e.getSource() == answerTextField1)
         {
-            answerTextField.setText("CORRECT!");
+
+            userValue = answerTextField1.getText();
+            int userValue1 = parseInt(userValue);
+
+            if(mainMath.compareEquation(userValue1))
+            {
+            answerTextField1.setText("CORRECT!");
             mainMath.setCurrentEquation();
             EquationLabel.setText(mainMath.getMissingFaEq());
 
-        }else {
-            answerTextField.setText("that wasn't correct");
+
+            }else
+            {
+                answerTextField1.setText("that wasn't correct");
+            }
         }
-       }
+        if(e.getSource() == answerTextField2)
+        {
+            userValue = answerTextField2.getText();
+            int userValue2 = parseInt(userValue);
+            if(mainMath.compareEquation1(userValue2))
+            {
+                answerTextField2.setText("CORRECT");
+                mainMath.setCurrentEquation();
+                for(int x =0; x<10; x++)
+                {
+                    labelArray[x].setText(mainMath.getfullEq());
+
+                }
+            } else
+            {
+                answerTextField2.setText("That wasn't Correct");
+            }
+
+        }
+	}
 }
